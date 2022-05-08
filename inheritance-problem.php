@@ -41,14 +41,6 @@ class Produk {
     }
  }
 
-// Membuat Kelas baru 
-
- class CetakInfoProduk {
-    public function cetak( Produk $produk){
-        $str = "{$produk->judul} | {$produk->getLabel()} (Rp.  {$produk->harga})";
-        return $str;
-    }
- }
 $produk1 = new Produk("Naruto", "Masashi Kisimoto", "Shonen Jump", 30000, 100, 0, "Komik");
 $produk2 = new Produk("Uncharted", "Neil Druckmann", "Sony Computer", 2500000, 0, 50, "Game");
 
