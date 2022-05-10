@@ -4,7 +4,7 @@
 // komik
 // game
 
-class Produk {
+abstract class Produk {
 
 	private $judul, 
             $penulis, 
@@ -49,7 +49,10 @@ class Produk {
         return "$this->penulis, $this->penerbit";
 
     }
-    public function getInfoProduk() {
+    abstract public function getInfoProduk();
+
+
+    public function getInfo() {
         $str = "{$this->judul} | {$this->getLabel()} (Rp. {$this->harga})";
         
         return $str;
@@ -76,7 +79,7 @@ class Produk {
     }
 
     public function getInfoProduk(){
-        $str = "Komik : " .parent::getInfoProduk()." - {$this->jmlHalaman} Halaman";
+        $str = "Komik : " .$this->getInfo()." - {$this->jmlHalaman} Halaman";
         return $str;
     }
  }
@@ -91,7 +94,7 @@ class Game extends Produk {
 
 
     public function getInfoProduk(){
-        $str = "Game : " . parent::getInfoProduk() . " ~ {$this->waktuMain} Jam";
+        $str = "Game : " . $this->getInfo() . " ~ {$this->waktuMain} Jam";
         return $str;
     }
  }
@@ -112,6 +115,7 @@ class Game extends Produk {
         return $str;
     }
  }
+
 
 
 $produk1 = new Komik("Naruto", "Masashi Kisimoto", "Shonen Jump", 30000, 100);
